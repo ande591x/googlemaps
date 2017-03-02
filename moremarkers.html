@@ -32,6 +32,22 @@
                 lng: 12.539083
             };
 
+            var kbh = {
+                lat: 55.6759172,
+                lng: 12.5669344
+            };
+
+            var amager = {
+                lat: 55.613217,
+                lng: 12.605924
+            };
+
+
+            var holme = {
+                lat: 55.610440,
+                lng: 12.462848
+            };
+
             var map = new google.maps.Map(document.getElementById('map'), {
                 zoom: 10,
                 center: myLatLng
@@ -42,6 +58,24 @@
                 map: map,
                 title: 'KEA Lygten 16!'
             });
+            var marker2 = new google.maps.Marker({
+                position: kbh,
+                map: map,
+                title: 'Rådhuspladsen!'
+            });
+
+            var marker3 = new google.maps.Marker({
+                position: amager,
+                map: map,
+                title: 'Amager!'
+            });
+
+            var marker4 = new google.maps.Marker({
+                position: holme,
+                map: map,
+                title: 'Avedøre Holme!'
+            });
+
         }
     </script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCZlP-Yysl9VHqC7e3GzWf6dhafOCBpPgc&callback=initMap" async defer></script>
