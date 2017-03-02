@@ -42,7 +42,7 @@
         function initMap() {
             var contentstring = "<h1>besøg rådhuspladsen</h1>"
             var infowindow = new google.maps.InfoWindow({
-                content: contentstring
+
             });
 
             var myLatLng = {
@@ -88,6 +88,7 @@
 
             });
             marker2.addListener('click', function () {
+                infowindow.setContent(document.querySelector(".text"));
                 infowindow.open(map, marker2);
             });
 
