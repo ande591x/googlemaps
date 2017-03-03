@@ -40,7 +40,7 @@
         var map;
         var infowindow;
         var kbh;
-
+        var arrayOfMarkers = [];
 
 
         window.addEventListener("load", sidenVises);
@@ -87,7 +87,7 @@
                 maxWidth: 100
 
             });
-
+            arrayOfMarkers.push(m);
             m.addListener("click", visinfo);
 
             function visinfo() {
@@ -106,6 +106,20 @@
                 navigator.geolocation.watchPosition(function (position) {
 
                     var minPos = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+
+                    arrayOfMarkers.forEach(each => {
+
+                        console.log(each.getPosition().lng(), each.getPosition().lng());
+                        var eachmarkerspos = new google.maps.LatLng(each.getPosition().lat(), each.getPosition().lng());
+                        var afstand = google.maps.geometry.spherical.computeDistanceBetween(minPos, eachmarkerspos);
+                        console.log("distance", afstand);
+                        if (afstand < 10) {
+                            each.setAnimation(google.maps.Animation.BOUNCE);
+                        } else {
+                            each.setAnimation(null);
+                        }
+
+                    })
 
                     map.setCenter(minPos);
                     var mig = new google.maps.Marker({
