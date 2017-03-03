@@ -18,7 +18,7 @@
         "id": "Lidl",
         "lat": 55.706273,
         "lng": 12.538239,
-        "icon": "/icon/lidl.png",
+        "icon": "icon/lidl.png",
         "txt": "Her er Lidl foran Kea"
  },
     {
@@ -26,7 +26,7 @@
         "id": "Jehovas vidner",
         "lat": 55.706376,
         "lng": 12.539105,
-        "icon": "/icon/jehova.png",
+        "icon": "icon/jehova.png",
         "txt": "Her er Jehovas vidner, don't go there!"
  },
 
@@ -34,7 +34,7 @@
         "id": "Kea Cykelstativet",
         "lat": 55.706227,
         "lng": 12.538994,
-        "icon": "/icon/kontor.png",
+        "icon": "icon/kontor.png",
         "txt": "Her er Kea's Cykelstativ"
  }
 
