@@ -64,25 +64,6 @@
                 zoom: 19
             });
 
-            var image = '/icon/you_are_here-01.svg'
-
-            if (navigator.geolocation) {
-                navigator.geolocation.watchPosition(function (position) {
-
-                    var minPos = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
-
-                    map.setCenter(minPos);
-                    var mig = new google.maps.Marker({
-                        position: minPos,
-                        map: map,
-                        icon: image
-                    });
-
-                });
-            } else {
-                alert("Geolocation NOT");
-            }
-
         }
 
         function visPunktInfo(punkt)  {
@@ -119,10 +100,33 @@
                 w.open(map, m);
             }
 
+            var image = '/icon/you_are_here-01.svg'
+
+            if (navigator.geolocation) {
+                navigator.geolocation.watchPosition(function (position) {
+
+                    var minPos = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+
+                    map.setCenter(minPos);
+                    var mig = new google.maps.Marker({
+                        position: minPos,
+                        map: map,
+                        icon: image
+                    });
+
+                });
+            } else {
+                alert("Geolocation NOT");
+            }
+            var indgang = new google.maps.LatLng(55.706376, 12.539105);
+            var lidl = new google.maps.LatLng(55.706273, 12.538239);
+            var dist = google.maps.geometry.spherical.computeDistanceBetween(indgang, lidl);
+            console.log("her er afstanden", dist);
 
         }
     </script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCZlP-Yysl9VHqC7e3GzWf6dhafOCBpPgc&callback=initMap" async defer></script>
+    <script src="https://maps.googleapis.com/maps/api/js?libraries=geometry&
+key=AIzaSyCZlP-Yysl9VHqC7e3GzWf6dhafOCBpPgc&callback=initMap" async defer></script>
 </body>
 
 </html>
