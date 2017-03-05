@@ -4,6 +4,7 @@
         "lat": 55.706376,
         "lng": 12.539105,
         "icon": "icon/indgang.png",
+        "img": "img/Kea.gif",
         "txt": "Her er Kea Lygten 16 hovedindgang"
 },
     {
@@ -11,6 +12,7 @@
         "lat": 55.706482,
         "lng": 12.539155,
         "icon": "icon/fredagsbar.png",
+        "img": "img/Kea.gif",
         "txt": "Her er fredagsbaren"
  },
 
@@ -19,14 +21,16 @@
         "lat": 55.706273,
         "lng": 12.538239,
         "icon": "icon/lidl.png",
+        "img": "img/Lidl.jpg",
         "txt": "Her er Lidl foran Kea"
  },
     {
 
         "id": "Jehovas vidner",
-        "lat": 55.706376,
-        "lng": 12.539105,
+        "lat": 55.706738,
+        "lng": 12.539310,
         "icon": "icon/jehova.png",
+        "img": "img/jehova.jpg",
         "txt": "Her er Jehovas vidner, don't go there!"
  },
 
@@ -35,6 +39,7 @@
         "lat": 55.706227,
         "lng": 12.538994,
         "icon": "icon/kontor.png",
+        "img": "img/Kea.gif",
         "txt": "Her er Kea's Cykelstativ"
  }
 

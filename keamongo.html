@@ -29,10 +29,14 @@
     <template id="text_template">
         <h2 class="h2class"></h2>
         <p class="pclass"></p>
+        <img class="img_class" style="width: 75px; height:75px"></img>
     </template>
 
 
     <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCZlP-Yysl9VHqC7e3GzWf6dhafOCBpPgc&libraries=geometry&
+callback=initMap" async defer></script>
     <script>
         var marker3;
         var info;
@@ -40,7 +44,6 @@
         var map;
         var infowindow;
         var kbh;
-        var arrayOfMarkers = [];
 
 
         window.addEventListener("load", sidenVises);
@@ -67,6 +70,8 @@
         }
 
         function visPunktInfo(punkt)  {
+            var arrayOfMarkers = [];
+
 
             console.log("Vis info");
             console.log("id: " + punkt.id);
@@ -95,6 +100,7 @@
                     document.querySelector("#text_template").content.cloneNode(true);
                 tempinfo.querySelector(".h2class").innerHTML = punkt.id;
                 tempinfo.querySelector(".pclass").innerHTML = punkt.txt;
+                tempinfo.querySelector(".img_class").src = punkt.img;
 
                 w.setContent(tempinfo);
                 w.open(map, m);
@@ -108,39 +114,44 @@
                     var minPos = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
 
                     arrayOfMarkers.forEach(each => {
-
+                        console.log("arrayOfMarkers");
                         console.log(each.getPosition().lng(), each.getPosition().lng());
                         var eachmarkerspos = new google.maps.LatLng(each.getPosition().lat(), each.getPosition().lng());
+                        console.log("var  eachmarkerspos");
                         var afstand = google.maps.geometry.spherical.computeDistanceBetween(minPos, eachmarkerspos);
+                        console.log("var  afstand");
                         console.log("distance", afstand);
                         if (afstand < 10) {
+                            console.log("under 10 meter");
                             each.setAnimation(google.maps.Animation.BOUNCE);
                         } else {
+                            console.log("else set animation = null");
                             each.setAnimation(null);
                         }
 
                     })
 
                     map.setCenter(minPos);
+                    console.log("map.setCenter(minPos)");
                     var mig = new google.maps.Marker({
                         position: minPos,
                         map: map,
                         icon: image
                     });
 
-                });
-            } else {
-                alert("Geolocation NOT");
+                    /*       console.log("før if else min pos");
+                           if (minPos !== 0) {
+                               console.log("minPos !== 0");
+                               map.setCenter(null);
+                           } else {
+                               console.log("Geolocation NOT");
+                               alert("Geolocation NOT");
+                           }*/
+                })
             }
-            var indgang = new google.maps.LatLng(55.706376, 12.539105);
-            var lidl = new google.maps.LatLng(55.706273, 12.538239);
-            var dist = google.maps.geometry.spherical.computeDistanceBetween(indgang, lidl);
-            console.log("her er afstanden", dist);
-
         }
     </script>
-    <script src="https://maps.googleapis.com/maps/api/js?libraries=geometry&
-key=AIzaSyCZlP-Yysl9VHqC7e3GzWf6dhafOCBpPgc&callback=initMap" async defer></script>
+
 </body>
 
 </html>
