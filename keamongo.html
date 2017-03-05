@@ -11,6 +11,7 @@
 
         #map {
             height: 100%;
+            width: 100%;
         }
         /* Optional: Makes the sample page fill the window. */
 
@@ -45,6 +46,7 @@ callback=initMap" async defer></script>
         var infowindow;
         var kbh;
         var mig = null;
+        var overlay;
 
 
         window.addEventListener("load", sidenVises);
@@ -67,7 +69,15 @@ callback=initMap" async defer></script>
                 center: kbh,
                 zoom: 19
             });
+            var bounds = {
+                north: 55.70723596854047,
+                south: 55.70576401759747,
+                east: 12.540161248023992,
+                west: 12.536508079345708
 
+            }
+            var overlay = new google.maps.GroundOverlay("icon/overlay2-01.svg", bounds);
+            overlay.setMap(map);
         }
 
         function visPunktInfo(punkt)  {
