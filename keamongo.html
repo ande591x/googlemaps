@@ -44,6 +44,7 @@ callback=initMap" async defer></script>
         var map;
         var infowindow;
         var kbh;
+        var mig = null;
 
 
         window.addEventListener("load", sidenVises);
@@ -131,14 +132,17 @@ callback=initMap" async defer></script>
 
                     })
 
-                    map.setCenter(minPos);
-                    console.log("map.setCenter(minPos)");
-                    var mig = new google.maps.Marker({
-                        position: minPos,
-                        map: map,
-                        icon: image
-                    });
-
+                    if (mig != null) {
+                        map.setCenter(minPos);
+                    } else {
+                        console.log("map.setCenter(minPos)");
+                        mig = new google.maps.Marker({
+                            position: minPos,
+                            map: map,
+                            icon: image
+                        });
+                        map.setCenter(minPos);
+                    }
                     /*       console.log("før if else min pos");
                            if (minPos !== 0) {
                                console.log("minPos !== 0");
