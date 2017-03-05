@@ -37,6 +37,16 @@
                 center: pos,
                 zoom: 20
             });
+
+            var bounds = {
+                north: 55.707687063556094,
+                south: 55.70624535468017,
+                east: 12.54281931715775,
+                west: 12.535362776096349
+            }
+
+            var overlay = new google.maps.GroundOverlay('img/overlay.svg', bounds);
+            overlay.setMap(map);
         }
     </script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCZlP-Yysl9VHqC7e3GzWf6dhafOCBpPgc&callback=initMap" async defer></script>
